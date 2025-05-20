@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Dev Hub</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --card-bg: #1a1a1a;
+            --hover-color: #2a2a2a;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 20px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+        
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .repo-card {
+            background-color: var(--card-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            background-color: var(--hover-color);
+        }
+        
+        .repo-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, transparent 70%, var(--accent-color) 100%);
+        }
+        
+        .repo-name {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        
+        .repo-desc {
+            margin-bottom: 15px;
+        }
+        
+        .repo-lang {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: rgba(0, 255, 255, 0.2);
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        
+        .repo-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent-color);
+            text-decoration: none;
+            border: 1px solid var(--accent-color);
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .repo-link:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--accent-color);
+            padding-top: 20px;
+        }
+        
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            transition: background-color 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        
+        /* Light theme */
+        .light-theme {
+            --bg-color: #f0f0f0;
+            --text-color: #121212;
+            --card-bg: #ffffff;
+            --hover-color: #e6e6e6;
+        }
+        
+        /* Glitch effect */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.75), -0.05em -0.025em 0 rgba(0, 255, 255, 0.75);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.75), -0.05em -0.025em 0 rgba(0, 255, 255, 0.75);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 255, 0.75), 0.025em 0.025em 0 rgba(0, 255, 255, 0.75);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 255, 0.75), 0.025em 0.025em 0 rgba(0, 255, 255, 0.75);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 255, 0.75), 0.05em 0 0 rgba(0, 255, 255, 0.75);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 255, 0.75), 0.05em 0 0 rgba(0, 255, 255, 0.75);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 rgba(255, 0, 255, 0.75), -0.025em -0.025em 0 rgba(0, 255, 255, 0.75);
+            }
+        }
+        
+        h1:hover {
+            animation: glitch 1s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CYBERPUNK DEV</h1>
+            <p class="subtitle">// coding in the digital wasteland</p>
+            <button class="theme-toggle" onclick="toggleTheme()">TOGGLE THEME</button>
+        </header>
+        
+        <div class="repo-grid">
+            <!-- Example repository cards - replace with your actual repos -->
+            <div class="repo-card">
+                <h2 class="repo-name">neural-net-hack</h2>
+                <p class="repo-desc">Advanced neural network implementation with cybernetic enhancements</p>
+                <span class="repo-lang">Python</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2 class="repo-name">quantum-cipher</h2>
+                <p class="repo-desc">Quantum-resistant encryption algorithm for secure data transmission</p>
+                <span class="repo-lang">Rust</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2 class="repo-name">neon-ui-framework</h2>
+                <p class="repo-desc">Cyberpunk-inspired UI components with neon glow effects</p>
+                <span class="repo-lang">JavaScript</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2 class="repo-name">virtual-reality-os</h2>
+                <p class="repo-desc">Experimental operating system for immersive VR environments</p>
+                <span class="repo-lang">C++</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2 class="repo-name">blockchain-identity</h2>
+                <p class="repo-desc">Decentralized identity verification using blockchain technology</p>
+                <span class="repo-lang">Solidity</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2 class="repo-name">augmented-vision</h2>
+                <p class="repo-desc">Computer vision algorithms for AR applications</p>
+                <span class="repo-lang">Python</span>
+                <br>
+                <a href="#" class="repo-link">VIEW CODE</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 // RUNNING ON GITHUB PAGES // SYSTEM STATUS: ONLINE</p>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+        
+        // Check for system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.classList.add('light-theme');
+        }
+        
+        // Listen for changes in system preference
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('light-theme');
+            } else {
+                document.body.classList.remove('light-theme');
+            }
+        });
+    </script>
+</body>
+</html>
