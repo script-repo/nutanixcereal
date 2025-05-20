@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk Dev Hub</title>
+    <title>Vibe Code Repos</title>
     <style>
         :root {
             --bg-color: #121212;
@@ -103,6 +103,7 @@
         .repo-link {
             display: inline-block;
             margin-top: 10px;
+            margin-right: 10px;
             color: var(--accent-color);
             text-decoration: none;
             border: 1px solid var(--accent-color);
@@ -120,31 +121,6 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--accent-color);
             padding-top: 20px;
-        }
-        
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            transition: background-color 0.3s;
-        }
-        
-        .theme-toggle:hover {
-            background-color: rgba(0, 255, 255, 0.1);
-        }
-        
-        /* Light theme */
-        .light-theme {
-            --bg-color: #f0f0f0;
-            --text-color: #121212;
-            --card-bg: #ffffff;
-            --hover-color: #e6e6e6;
         }
         
         /* Glitch effect */
@@ -180,59 +156,28 @@
 <body>
     <div class="container">
         <header>
-            <h1>CYBERPUNK DEV</h1>
-            <p class="subtitle">// coding in the digital wasteland</p>
-            <button class="theme-toggle" onclick="toggleTheme()">TOGGLE THEME</button>
+            <h1>VIBE CODE REPOS</h1>
+            <p class="subtitle">// random bits of code that make me happy</p>
         </header>
         
         <div class="repo-grid">
-            <!-- Example repository cards - replace with your actual repos -->
+            <!-- Updated repository cards with two links each -->
             <div class="repo-card">
-                <h2 class="repo-name">neural-net-hack</h2>
-                <p class="repo-desc">Advanced neural network implementation with cybernetic enhancements</p>
-                <span class="repo-lang">Python</span>
+                <h2 class="repo-name">Cyberpunk Pomodoro Timer</h2>
+                <p class="repo-desc">A stylish cyberpunk-themed pomodoro timer to enhance your productivity in the digital age</p>
+                <span class="repo-lang">HTML/CSS/JS</span>
                 <br>
-                <a href="#" class="repo-link">VIEW CODE</a>
+                <a href="https://github.com/script-repo/nutanixcereal/blob/main/cyberclock/index.html" class="repo-link">VIEW CODE</a>
+                <a href="https://script-repo.github.io/nutanixcereal/cyberclock/" class="repo-link">VIEW DEMO</a>
             </div>
             
             <div class="repo-card">
-                <h2 class="repo-name">quantum-cipher</h2>
-                <p class="repo-desc">Quantum-resistant encryption algorithm for secure data transmission</p>
-                <span class="repo-lang">Rust</span>
-                <br>
-                <a href="#" class="repo-link">VIEW CODE</a>
-            </div>
-            
-            <div class="repo-card">
-                <h2 class="repo-name">neon-ui-framework</h2>
-                <p class="repo-desc">Cyberpunk-inspired UI components with neon glow effects</p>
+                <h2 class="repo-name">Audplayer</h2>
+                <p class="repo-desc">Futuristic audio player with visualizations and cyberpunk interface</p>
                 <span class="repo-lang">JavaScript</span>
                 <br>
                 <a href="#" class="repo-link">VIEW CODE</a>
-            </div>
-            
-            <div class="repo-card">
-                <h2 class="repo-name">virtual-reality-os</h2>
-                <p class="repo-desc">Experimental operating system for immersive VR environments</p>
-                <span class="repo-lang">C++</span>
-                <br>
-                <a href="#" class="repo-link">VIEW CODE</a>
-            </div>
-            
-            <div class="repo-card">
-                <h2 class="repo-name">blockchain-identity</h2>
-                <p class="repo-desc">Decentralized identity verification using blockchain technology</p>
-                <span class="repo-lang">Solidity</span>
-                <br>
-                <a href="#" class="repo-link">VIEW CODE</a>
-            </div>
-            
-            <div class="repo-card">
-                <h2 class="repo-name">augmented-vision</h2>
-                <p class="repo-desc">Computer vision algorithms for AR applications</p>
-                <span class="repo-lang">Python</span>
-                <br>
-                <a href="#" class="repo-link">VIEW CODE</a>
+                <a href="#" class="repo-link">VIEW DEMO</a>
             </div>
         </div>
         
@@ -240,25 +185,5 @@
             <p>© 2025 // RUNNING ON GITHUB PAGES // SYSTEM STATUS: ONLINE</p>
         </footer>
     </div>
-    
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-        }
-        
-        // Check for system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.body.classList.add('light-theme');
-        }
-        
-        // Listen for changes in system preference
-        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
-            if (event.matches) {
-                document.body.classList.add('light-theme');
-            } else {
-                document.body.classList.remove('light-theme');
-            }
-        });
-    </script>
 </body>
 </html>
